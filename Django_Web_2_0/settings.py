@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'Django_Web_2_0.urls'
@@ -104,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'zh_hans'
 
 TIME_ZONE = 'UTC'
 
@@ -114,7 +115,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+LANGUAGES = (
+    ('en', ('English')),
+    ('zh_hans', ('中文简体')),
+    ('zh_hant', ('中文繁體')),
+)
+# 翻译文件所在目录，需要手工创建
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+"""
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.i18n",
+)
+"""
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
