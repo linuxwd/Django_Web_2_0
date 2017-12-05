@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 # 执行autodiscover函数，该函数是根据settings.INSTALLED_APPS来逐个处理每个模块的，
 # 注册了模块却无法生效，肯定是因为没有将模块添加到配置文件的INSTALLED_APPS中。
 admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('here/', views.here),
 ]
