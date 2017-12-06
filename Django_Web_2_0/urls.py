@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 # 执行autodiscover函数，该函数是根据settings.INSTALLED_APPS来逐个处理每个模块的，
 # 注册了模块却无法生效，肯定是因为没有将模块添加到配置文件的INSTALLED_APPS中。
@@ -22,5 +22,6 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('here/', views.here),
+    re_path(r'^here/$', views.here),
+    re_path(r'^(\d{1,2})/plus/(\d{1,2})',views.add),
 ]
