@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^here/$', views.here),
     re_path(r'^(\d{1,2})/plus/(\d{1,2})',views.add),
+    re_path(r'^(\d{1,2})/math/(\d{1,2})', views.math),
 ]
